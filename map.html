@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Карта ЯПердолии</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #map { height: 600px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const imageBounds = [[0, 0], [5000, 5000]]; 
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -2,
+            maxZoom: 5
+        });
+        L.imageOverlay('https://i.imgur.com/vfZHNYt.jpeg', imageBounds).addTo(map); // <- ваша ссылка здесь!
+        map.fitBounds(imageBounds);
+	// Метка 1 (Приключение: Первые знамения)
+	L.marker([1200, 1300])
+  	.bindPopup(`
+    	<h3>Первые знамения</h3>
+    	<p>Краткая история:</p>
+    	<ul>
+      	<li>Группа путешествинников, состоящая из новобранцев Гильдии Авантюристов, попадает в деревню чуть южнее города Дикхольм. И спасти все, что может пригодится Гильдии в будущем, пока не прибыли Татаро-Буряты.</li>
+    	</ul>
+    	<img src="https://i.imgur.com/yW1aNQN.jpeg" width="100">
+  	`)
+ 	.addTo(map);
+	// Метка 2 (Приключение: Отголоски огров)
+	L.marker([400, 4500])
+  	.bindPopup(`
+    	<h3>Отголоски огров</h3>
+    	<p>Краткая история:</p>
+    	<ul>
+      	<li>Группа путешествинников, состоящая из новобранцев Гильдии Авантюристов, попадает в окрестности бывшей столицы огров - Корунд. В надежде найти что-то, что поможет им в борьбе с Татаро-Бурятами, но им приходится разгадать тайну смерти последнего короля огров.</li>
+    	</ul>
+    	<img src="https://i.imgur.com/mc4QTKP.jpeg" width="100">
+  	`)
+	.addTo(map);
+	// Метка 3 (Приключение: Первое знакомство с астралом)
+	L.marker([3000, 1700])
+  	.bindPopup(`
+    	<h3>Первое знакомство с астралом</h3>
+    	<p>Краткая история:</p>
+    	<ul>
+      	<li>Группа путешествинников, состоящая из бывалых бойцов Гильдии Авантюристов, в поисках магических артефактов, попадает в самую восточную башню укреплений Рассосисии, и натыкается на приключения в астрале, сражаясь с полуросликами-пиратами.</li>
+    	</ul>
+    	<img src="https://i.imgur.com/MNzdJRM.jpeg" width="100">
+  	`)
+ 	.addTo(map);
+    </script>
+</body>
+</html>
